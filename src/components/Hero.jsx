@@ -5,13 +5,13 @@ import sideimg from "../img/Myntragandb.png";
 const Hero = () => {
   return (
     <section
-      className="relative h-[800px] w-full bg-no-repeat bg-cover bg-center pt-24" // Added padding-top
+      className="relative h-[800px] w-full bg-no-repeat bg-cover bg-center pt-24"
       style={{ backgroundImage: `url(${heroBg})` }}
     >
-      <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay for better text visibility */}
-      <div className="container mx-auto flex justify-between items-center h-full px-6">
+      <div className="absolute inset-0 bg-black opacity-60 z-10"></div>
+      <div className="container mx-auto flex justify-between items-center h-full px-6 relative z-20">
         {/* Text Section */}
-        <div className="relative z-10 text-white max-w-xl">
+        <div className="text-white max-w-xl">
           <div className="font-semibold flex items-center uppercase tracking-wider text-lg mb-4">
             <div className="w-12 h-[3px] mr-4 bg-cyan-500"></div>Hot Trend
           </div>
@@ -30,7 +30,7 @@ const Hero = () => {
         </div>
 
         {/* Optional Image Section */}
-        <div className="hidden lg:block relative z-10">
+        <div className="hidden lg:block">
           <img
             src={sideimg} 
             alt="Summer Collection"

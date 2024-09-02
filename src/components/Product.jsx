@@ -2,7 +2,8 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { BsPlus, BsEyeFill } from "react-icons/bs";
 import { CartContext } from "../contexts/CartContext";
-
+import {  toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // eslint-disable-next-line react/prop-types
 const Product = ({ product }) => {
   const { addToCart } = useContext(CartContext);
@@ -10,7 +11,17 @@ const Product = ({ product }) => {
   // Destructure product
   // eslint-disable-next-line react/prop-types
   const { id, image, category, title, price } = product;
-
+  const handleActionClick = (action) => {
+    toast.info(`Product ${action}`, {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
   return (
     <div className="border border-gray-200 rounded-lg shadow-md overflow-hidden group transition-transform transform hover:scale-[1.02] bg-white">
       <div className="relative h-[300px] flex items-center justify-center overflow-hidden">
@@ -26,7 +37,7 @@ const Product = ({ product }) => {
             onClick={() => addToCart(product, id)}
             className="w-12 h-12 flex items-center justify-center bg-pink-600 text-white rounded-full shadow-lg hover:bg-pink-700 transition"
           >
-            <BsPlus className="text-2xl" />
+            <BsPlus onClick={() => handleActionClick("Added to cart")} size={50} className="text-2xl" />
           </button>
           <Link
             to={`/product/${id}`}
