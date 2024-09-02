@@ -1,9 +1,11 @@
-import React, { useContext } from 'react';
+import  { useContext } from 'react';
 import { FiTrash2 } from 'react-icons/fi';
 import { CartContext } from '../contexts/CartContext';
 
+// eslint-disable-next-line react/prop-types
 const CartItem = ({ item }) => {
   const { removeFromCart, increaseAmount, decreaseAmount } = useContext(CartContext);
+  // eslint-disable-next-line react/prop-types
   const { id, title, image, price, amount } = item;
 
   return (

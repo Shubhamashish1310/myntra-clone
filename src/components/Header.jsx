@@ -9,6 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import shub from '../img/image.png';
 
+// eslint-disable-next-line react/prop-types
 const Header = ({ onSearch }) => {
   const [isActive, setIsActive] = useState(true);
   const { isOpen, setIsOpen } = useContext(SidebarContext);

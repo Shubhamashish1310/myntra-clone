@@ -16,7 +16,7 @@ function Error() {
           </svg>
           <h2 className="text-2xl font-semibold mb-4">Oops! Something Went Wrong</h2>
           <p className="text-gray-600 mb-6">
-            We're sorry, but an unexpected error occurred. Please try again later.
+            `We are sorry, but an unexpected error occurred. Please try again later.`
           </p>
           <button 
             className="btn btn-primary bg-blue-500 hover:bg-blue-600 text-white" 
