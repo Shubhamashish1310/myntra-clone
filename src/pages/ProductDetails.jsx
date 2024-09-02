@@ -3,13 +3,13 @@ import { useParams } from "react-router-dom";
 import { CartContext } from "../contexts/CartContext";
 import { ProductContext } from "../contexts/ProductContext";
 import Alert from "../components/Alert";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const ProductDetails = () => {
 
   const handleActionClick = (action) => {
-    toast.info(`🔧 ${action} feature is not implemented yet!`, {
-      position: "top-right",
+    toast.info(`Product ${action} `, {
+      position: "top-center",
       autoClose: 3000,
       hideProgressBar: true,
       closeOnClick: true,
@@ -60,7 +60,10 @@ const ProductDetails = () => {
             <div className="text-2xl font-bold text-red-600 mb-6">${price}</div>
             <p className="text-gray-600 mb-8">{description}</p>
             <button
-              onClick={() => addToCart(product, product.id)&&handleActionClick('Add to Cart')}
+              onClick={() => {
+                addToCart(product, product.id);
+                handleActionClick("Added to cart");
+              }}
               className="btn btn-primary rounded-full py-4 px-8 text-white bg-blue-600 hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               Add to Cart
@@ -68,7 +71,7 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
-      <ToastContainer />
+      
     </section>
   );
 };

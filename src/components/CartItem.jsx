@@ -1,89 +1,45 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { useContext } from 'react';
+import { FiTrash2 } from 'react-icons/fi';
+import { CartContext } from '../contexts/CartContext';
 
-export const CartContext = createContext();
-
-// eslint-disable-next-line react/prop-types
-const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
-  const [itemAmount, setItemAmount] = useState(0);
-  const [total, setTotal] = useState(0);
-
-  useEffect(() => {
-    const total = cart.reduce((accumulator, currentItem) => {
-      return accumulator + currentItem.price * currentItem.amount;
-    }, 0);
-    setTotal(total);
-  }, [cart]);
-
-  useEffect(() => {
-    const amount = cart.reduce((accumulator, currentItem) => {
-      return accumulator + currentItem.amount;
-    }, 0);
-    setItemAmount(amount);
-  }, [cart]);
-
-  const addToCart = (product, id) => {
-    const newItem = { ...product, amount: 1 };
-    const cartItem = cart.find((item) => item.id === id);
-    if (cartItem) {
-      const newCart = cart.map((item) => {
-        if (item.id === id) {
-          return { ...item, amount: cartItem.amount + 1 };
-        }
-        return item;
-      });
-      setCart(newCart);
-    } else {
-      setCart([...cart, newItem]);
-    }
-  };
-
-  const removeFromCart = (id) => {
-    const newCart = cart.filter((item) => item.id !== id);
-    setCart(newCart);
-  };
-
-  const clearCart = () => {
-    setCart([]);
-  };
-
-  const increaseAmount = (id) => {
-    const cartItem = cart.find((item) => item.id === id);
-    addToCart(cartItem, id);
-  };
-
-  const decreaseAmount = (id) => {
-    const cartItem = cart.find((item) => item.id === id);
-    if (cartItem) {
-      const newCart = cart.map((item) => {
-        if (item.id === id) {
-          return { ...item, amount: cartItem.amount - 1 };
-        }
-        return item;
-      });
-      setCart(newCart);
-    }
-    if (cartItem.amount < 2) {
-      removeFromCart(id);
-    }
-  };
+const CartItem = ({ item }) => {
+  const { removeFromCart, increaseAmount, decreaseAmount } = useContext(CartContext);
+  const { id, title, image, price, amount } = item;
 
   return (
-    <CartContext.Provider
-      value={{
-        cart,
-        addToCart,
-        removeFromCart,
-        clearCart,
-        increaseAmount,
-        decreaseAmount,
-        itemAmount,
-        total,
-      }}
-    >
-      {children}
-    </CartContext.Provider>
+    <div className="flex justify-between items-center p-4 bg-white shadow rounded-md">
+      <div className="flex items-center gap-x-4">
+        <img src={image} alt={title} className="w-20 h-20 object-cover rounded-md" />
+        <div className="flex flex-col">
+          <h4 className="font-medium text-sm">{title}</h4>
+          <div className="flex gap-x-2 items-center">
+            <div className="text-gray-500">${price.toFixed(2)}</div>
+            <div className="flex items-center gap-x-1">
+              <button
+                onClick={() => decreaseAmount(id)}
+                className="text-sm px-2 py-1 bg-gray-200 rounded"
+              >
+                -
+              </button>
+              <div className="text-sm">{amount}</div>
+              <button
+                onClick={() => increaseAmount(id)}
+                className="text-sm px-2 py-1 bg-gray-200 rounded"
+              >
+                +
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        onClick={() => removeFromCart(id)}
+        className="text-red-500 hover:text-red-600 transition"
+      >
+        <FiTrash2 />
+      </button>
+    </div>
   );
 };
 
-export default CartProvider;
+export default CartItem;

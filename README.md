@@ -2,6 +2,16 @@
 
 This project is a clone of the popular Indian fashion e-commerce website Myntra, built using React, Vite, Tailwind CSS, and several other modern web development technologies. This clone aims to replicate the core features and design of Myntra while incorporating additional enhancements and learning experiences for modern React development.
 
+## Testing
+This project has been tested using [Playwright](https://playwright.dev/). To test this project yourself, you can install Playwright using one of the following methods:
+
+### NPM
+`npm init playwright@latest`
+
+![alt text](image-1.png)
+
+Additionally, you can also use the [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright) to run your tests.
+
 ## **Live Site**
 
 Check out the live site here: [Myntra Clone](https://shubhamreact.netlify.app/)
@@ -18,7 +28,7 @@ Check out the live site here: [Myntra Clone](https://shubhamreact.netlify.app/)
 ![Error Boundary](./src/img/errorboundary.png)
 
 ### Profile Page
-![Profile Page](./src/img/profile.png)
+![Profile Page](image.png)
 
 ### Cart Page
 ![Cart Page](./src/img/cart.png)
@@ -33,6 +43,7 @@ Check out the live site here: [Myntra Clone](https://shubhamreact.netlify.app/)
 - **Dynamic Product Display**: Showcases products with details fetched from an API, including category-specific listings.
 - **Interactive Cart Management**: Add, remove, and update cart items with real-time feedback and notifications.
 - **User Profile Page**: Displays user details with edit functionality (to be expanded in future iterations).
+- **Zustand**: For global state Management
 
 ## **Tech Stack**
 
@@ -43,6 +54,8 @@ Check out the live site here: [Myntra Clone](https://shubhamreact.netlify.app/)
 - **Context API**: React's built-in state management for handling global state across components.
 - **React Router**: For managing application routes and navigation.
 - **React Error Boundary**: For gracefully handling JavaScript errors in the component tree.
+- **Zustand**: For global state Management
+- **React-Tostify**:For Awesome Alert 
 
 ## **Additional Libraries**
 
@@ -56,6 +69,9 @@ Check out the live site here: [Myntra Clone](https://shubhamreact.netlify.app/)
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/yourusername/myntra-clone.git
+
+   ```bash
+   npm run shubham
 
 
 2. **Install dependencies:**
