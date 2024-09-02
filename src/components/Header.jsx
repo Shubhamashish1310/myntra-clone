@@ -51,7 +51,7 @@ const Header = ({ onSearch }) => {
   return (
     <header
       className={`fixed w-full z-10 transition-all ${
-        isActive ? 'bg-white shadow-md' : 'bg-transparent'
+        isActive ? 'bg-white shadow-md' : 'bg-pink-200'
       }`}
     >
       <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between h-full px-4 lg:px-8 py-4 lg:py-6">
@@ -62,8 +62,8 @@ const Header = ({ onSearch }) => {
           onClick={() => notify(`Shubham, welcome to Myntra!`)}
           className="flex items-center mb-4 lg:mb-0"
         >
-          <img className="h-10 w-auto" src={Logo} alt="Myntra Logo" />
-          <span className="text-2xl font-bold ml-2 text-black">Myntra</span>
+          <img className="h-12 w-auto" src={Logo} alt="Myntra Logo" />
+          <span className="text-2xl font-bold ml-2 mx-4 text-black">Myntra</span>
         </Link>
 
         {/* Navigation Links */}
