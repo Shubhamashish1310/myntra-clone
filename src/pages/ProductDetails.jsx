@@ -15,8 +15,8 @@ const ProductDetails = () => {
   // If product is not found
   if (!product) {
     return (
-      <section className="h-screen flex justify-center items-center">
-        <p><Alert /></p>
+      <section className="h-screen flex justify-center items-center bg-gray-100">
+        <Alert />
       </section>
     );
   }
@@ -25,23 +25,30 @@ const ProductDetails = () => {
   const { title, price, description, image } = product;
 
   return (
-    <section className="pt-[450px] md:pt-32 pb-[400px] md:pb-12 lg:py-32 h-screen flex items-center">
-      <div className="container mx-auto">
-        {/* Image and text wrapper */}
-        <div className="flex flex-col lg:flex-row items-center">
-          {/* Image */}
-          <div className="flex flex-1 justify-center items-center mb-8 lg:mb-0">
-            <img className="max-w-[200px] h-auto lg:max-w-xs" src={image} alt={title} />
+    <section className="pt-32 pb-12 lg:py-32 min-h-screen flex items-center bg-gradient-to-r from-white to-gray-100">
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start space-y-8 lg:space-y-0 lg:space-x-16">
+          {/* Product Image */}
+          <div className="flex-1 flex justify-center lg:justify-end items-center">
+            <img
+              className="max-w-full h-auto object-cover transform hover:scale-105 transition-transform duration-300 ease-in-out shadow-lg rounded-lg"
+              src={image}
+              alt={title}
+            />
           </div>
-          {/* Text */}
+
+          {/* Product Info */}
           <div className="flex-1 text-center lg:text-left">
-            <h1 className="text-[26px] font-medium mb-2 max-w-[450px] mx-auto lg:mx-0">{title}</h1>
-            <div className="text-2xl text-red-500 font-medium mb-6">$ {price}</div>
-            <p className="mb-8">{description}</p>
-            <button 
-              onClick={() => addToCart(product, product.id)} 
-              className='bg-primary py-4 px-8 text-white'>
-              Add to cart
+            <h1 className="text-3xl font-semibold mb-4 text-gray-800 leading-tight">
+              {title}
+            </h1>
+            <div className="text-2xl font-bold text-red-600 mb-6">${price}</div>
+            <p className="text-gray-600 mb-8">{description}</p>
+            <button
+              onClick={() => addToCart(product, product.id)}
+              className="btn btn-primary rounded-full py-4 px-8 text-white bg-blue-600 hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+            >
+              Add to Cart
             </button>
           </div>
         </div>
