@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CategoryPage from "./pages/Catogarypage";
 import Profile from "./components/Profile";
+import Discover from "./pages/Discover";
 
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/cart" element={<Home searchQuery={searchQuery} />}  ></Route>
           <Route path="/checkout" element={<Home searchQuery={searchQuery} />}  ></Route>
           <Route path="/" element={<Home searchQuery={searchQuery} />}  ></Route>
+          <Route path="/products" element={<Discover searchQuery={searchQuery} />}  ></Route>
           
           <Route path="/profile" element={<Profile/>}  ></Route>
           

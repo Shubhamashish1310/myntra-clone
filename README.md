@@ -2,6 +2,8 @@
 
 This project is a clone of the popular Indian fashion e-commerce website Myntra, built using React, Vite, Tailwind CSS, and several other modern web development technologies. This clone aims to replicate the core features and design of Myntra while incorporating additional enhancements and learning experiences for modern React development.
 
+This project is an API-based project, using Axios for making API requests and Zustand for state management.
+
 ## Testing
 This project has been tested using [Playwright](https://playwright.dev/). To test this project yourself, you can install Playwright using one of the following methods:
 

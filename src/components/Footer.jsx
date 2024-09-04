@@ -49,7 +49,8 @@ const Footer = () => {
       </form>
     </div>
     <div className="text-center mt-6">
-      <p>© 2024 Myntra. All rights reserved. | Developed by Shubham Ashish</p>
+      <p>© 2024 Myntra. All rights reserved. |</p>
+      <span className="text-lg font-bold text-red-600"> Developed by Shubham Ashish</span>
     </div>
   </footer>
   

@@ -22,7 +22,7 @@ const Hero = () => {
             <span className="font-light text-cyan-300">New Collection</span>
           </h1>
           <Link
-            to="/category/men's clothing"
+            to="/products"
             className="inline-block bg-cyan-500 text-black font-semibold text-lg uppercase py-3 px-8 rounded shadow-lg hover:bg-cyan-600 transition duration-300"
           >
             Discover More

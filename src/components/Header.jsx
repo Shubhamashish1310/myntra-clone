@@ -77,6 +77,13 @@ const Header = ({ onSearch }) => {
           </div>
         </div>
         <div className="hidden lg:flex flex-grow items-center space-x-8 text-sm font-medium hover:text-gray-900 transition duration-300">
+        <Link
+            to="/products"
+            onClick={() => notify("Explore All")}
+            className="text-sm font-medium text-black hover:text-gray-900 uppercase hover:text-lg transition duration-200"
+          >
+            All Products
+          </Link>
           <Link
             to="/category/men's clothing"
             onClick={() => notify("Explore Men's Clothing!")}
